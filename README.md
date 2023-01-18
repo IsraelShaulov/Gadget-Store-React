@@ -1,7 +1,7 @@
 # Gadget-Store-React :computer:
 > PROD [Live] : https://gadgetstorereact.netlify.app/
 
-####Build an E-Commerce web app where you can purchase Gadget's, sort objects from a list of colors, company brands, prices and more.
+#### Build an E-Commerce web app where you can purchase Gadget's, sort objects from a list of colors, company brands, prices and more.
 
 #### GadgetStore consists of a straight forward user interface where there is a 
 - List of Gadget's in the store, search form the search bar for specific Gadget item as we are typing, and along with the routes to the **Home**, **About**, **Products**, **Checkout** in the navigation bar.
