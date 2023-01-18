@@ -10,7 +10,7 @@
 - To run the project locally, clone the repo, `npm install` to install the dependencies and `npm start` to start up the development server on default port 3000.
 
 #### Languages / Technologies 
-HTML, CSS, JavaScript, React ~ ContextAPI ~ Hooks ~ useState, useEffect, useReducer, useContext, React Icons, Axios, React Router 6, Styled Components, Auth0, Formspree for the subscription form, Stripe for check out, database created in Airtable, deployment to Netlify and using **Serverless Functions** for Stripe and Fetch database from Airtable in secure way.
+HTML, CSS, JavaScript, React ~ ContextAPI ~ Hooks ~ useState, useEffect, useReducer, useContext, React Icons, Axios, React Router 6, Styled Components, Auth0, Formspree for the subscription form, Stripe for checkout, database created in Airtable, deployment to Netlify and using **Serverless Functions** for Stripe and Fetch database from Airtable in secure way.
 
 #### API
 custom api using AirtableDB
