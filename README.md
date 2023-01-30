@@ -1,21 +1,52 @@
 # Gadget-Store-React :computer:
 > PROD [Live] : https://gadgetstorereact.netlify.app/
 
-#### Build an E-Commerce web app where you can purchase Gadget's, sort objects from a list of colors, company brands, prices and more.
+# Overview
 
-#### GadgetStore consists of a straight forward user interface where there is a 
-- List of Gadget's in the store, search form the search bar for specific Gadget item as we are typing, and along with the routes to the **Home**, **About**, **Products**, **Checkout** in the navigation bar.
-- To get more details of a specific Gadget item in the list, click on the **Magnifying Glass**. 
-- For each page render the **Loading** component has been implemented and unknown route URLs are handled by the **Error** component.
-- To run the project locally, clone the repo, `npm install` to install the dependencies and `npm start` to start up the development server on default port 3000.
+Responsive React e-commerce project that allows users to find and order Gadget's for yourself. 
 
-#### Languages / Technologies 
-HTML, CSS, JavaScript, React ~ ContextAPI ~ Hooks ~ useState, useEffect, useReducer, useContext, React Icons, Axios, React Router 6, Styled Components, Auth0, Formspree for the subscription form, Stripe for checkout, database created in Airtable, deployment to Netlify and using **Serverless Functions** for Stripe and Fetch database from Airtable in secure way.
+# Features
 
-#### API
-custom api using AirtableDB
+- Filters by category, company, colors, price, and shipping. Users can select, change and clear filters and see results
+- Sort by price (lowest-highest) and name (A-Z, Z-A)
+- Change product view - grid or list
+- Select color and set amount in Single Product Page
+- Add to cart
+- Cart: change amount, delete product from cart, clear cart. Calculate subtotal, shipping fee, the order total
+- Checkout (using Stripe): add cart info, pay, redirect to the main page after payment.
+- Login and logout using Auth0. Checkout available only after login.
+- Collect emails using Formspree.io
 
-#### Deployment / Hosting
-Netlify
+# API
+- Custom API using AirtableDB
 
----
+# Setup
+
+- React 18
+- CSS using styled-components
+- Icons using React Icons
+- Routing using React Router
+- Collect emails with Formspree.io
+- AirtableDB
+- Authorization with Auth0
+- Checkout with Stripe
+- Server-less functions for payment, deployment with Netlify
+
+# Structure
+
+Main project contains pages, components, context, reducers and utils. There are some additional files to set up payments - env, netlify, functions.
+
+- There are several pages. Some of them have all of the code for rendring inside (like ErrorPage), some contains child components (like HomePage), some contains both (like ProductsPage)
+- Same with components - in some cases we use child components (Sidebar.js), mostly - not.
+- Pages and components folders have index.js inside. We use it for get all of the files and export as object, so we can easy import multiple components in one line like this: `import { FeaturedProducts, Hero, Services, Contact } from '../components'`
+- Utils → helpers.js contains functions that help to format price values and get unique values for filters
+
+# Data&State Management
+
+- We get our data from external API, links to it you can find in utils→constatnts.js
+- We fetch this data in products_context.js, dispatch to product_reducer.js, updating the state and provide this data to the App.
+- We use this data for rendering content in our pages and components, and import it in another context files to build new states.
+- We have 3 main context/reducers: products, cart and filter. Also, we have user_context for set up Auth0
+- We export custom hook (for example useProductsContext) in each context file in order to faster get our data from state
+- We store all our actions for context and reducers in separate file — actions.js. It helps us to faster write dispatch type and actions without making errors
+- We set up Stripe using stateless functions (create-payment-intent.js), netlify.toml, env, StripeCheckout.js component, and use this component inside CheckoutPage.js
